@@ -1,0 +1,81 @@
+body {
+  
+        background: #0264d6;
+        /* Old browsers */
+        background: -moz-radial-gradient(center, ellipse cover, #0264d6 1%, #1c2b5a 100%);
+        /* FF3.6+ */
+        background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(1%, #0264d6), color-stop(100%, #1c2b5a));
+        /* Chrome,Safari4+ */
+        background: -webkit-radial-gradient(center, ellipse cover, #0264d6 1%, #1c2b5a 100%);
+        /* Chrome10+,Safari5.1+ */
+        background: -o-radial-gradient(center, ellipse cover, #0264d6 1%, #1c2b5a 100%);
+        /* Opera 12+ */
+        background: -ms-radial-gradient(center, ellipse cover, #0264d6 1%, #1c2b5a 100%);
+        /* IE10+ */
+        background: radial-gradient(ellipse at center, #0264d6 1%, #1c2b5a 100%);
+        /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0264d6', endColorstr='#1c2b5a', GradientType=1);
+        /* IE6-9 fallback on horizontal gradient */
+        height: calc(100vh);
+        width: 100%;
+    }
+
+
+.secondDiv {
+    height: 80vh;
+    max-width: 90%;
+    background: white;
+    margin: 5%;
+    position: relative;
+}
+
+.corner {
+    border-radius: 20px;
+    border: 1px solid black;
+}
+
+.cornernav {
+    border-end-end-radius: 20px;
+    border-end-start-radius: 20px;
+}
+
+.background-image {
+    background-image: url('../img/escenario2.png');
+    background-size: cover;
+    background-position: center;
+    height: 350px;
+}
+
+.divMaps{
+    height: 400px;
+    width: 400px;
+}
+.bodyMap{
+    background-color: gray;
+}
+.form-login {
+    background-color: #EDEDED;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 15px;
+    border-color:#d2d2d2;
+    border-width: 5px;
+    box-shadow:0 1px 0 #cfcfcf;
+}
+
+h4 { 
+ border:0 solid #fff; 
+ border-bottom-width:1px;
+ padding-bottom:10px;
+ text-align: center;
+}
+
+.form-control {
+    border-radius: 10px;
+}
+
+.wrapper {
+    text-align: center;
+}

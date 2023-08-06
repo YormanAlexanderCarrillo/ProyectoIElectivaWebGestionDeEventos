@@ -1,0 +1,40 @@
+<%- include('./templates/header')%>
+
+    <body>
+        <div class="container">
+            <%- include('./templates/navIndex')%>
+        </div>
+        <div class="main">
+            <div class="containerer">
+                <div class="middle">
+                    <div id="login">
+                        <br>
+                        <br>
+                        <br>
+                        <form action="/dashBoard" method="POST">
+                            <fieldset class="clearfix">
+                                <p>
+                                    <span class="fa1 fa-user">
+                                    </span>
+                                    <input type="text" id="inputUserName" name="inputUserName" Placeholder="Usuario" required>
+                                </p>
+                                <p>
+                                    <span class="fa2 fa-lock"></span>
+                                    <input type="password" id="inputPassword" name="inputPassword" Placeholder="Password" required>
+                                </p>
+                            </fieldset>
+                            <div>
+                                <button type="submit" class="btn btn-secondary">Enviar</button>
+                            </div>
+                        </form>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="logo">
+                        <img src="img/Logo.png" alt="Logo">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <%- include('./templates/footer')%>
+        </html>

@@ -1,0 +1,60 @@
+<%- include('./templates/header.ejs')%>
+<body>
+    <div class="container">
+        <%- include('./templates/navlogin')%>
+    </div>
+    <div class="container">
+        <% if (data.length > 0){ %>
+            <div class="container p-3">
+                <h2 class="text-center">Listado De Eventos</h2>
+                <br>
+                <div class="table-responsive-sm">
+                    <table class="table table-bordered table-striped mb-3" id="tableData">
+                        <thead>
+                        <tr class="text-center">
+                            <th scope="col">Id</th>
+                            <th scope="col">Titulo</th>
+                            <th scope="col">Descripción</th>
+                            <th scope="col">Fec. inicio</th>
+                            <th scope="col">Fec. finalización</th>
+                            <th scope="col">Valor</th>
+                            <th scope="col">Invitado</th>
+                            <th scope="col">organizador</th>
+                            <th scope="col">Telefono</th>
+                            <th scope="col">Ver ubicación</th>
+                           
+                        </tr>
+                        </thead>
+                        <tbody id="tBody">
+                        <% data.forEach((item )=>{ %>
+                            <tr>
+                                <td><%= item.id %></td>
+                                <td><%= item.title %></td>
+                                <td><%= item.description %></td>
+                                <td><%= item.dateInitial.substring(0, 10) %></td>
+                                <td><%= item.dateFinish.substring(0, 10) %></td>
+                                <td><%= item.value %></td>
+                                <td><%= item.guest.nameGuest %></td>
+                                <td><%= item.organizer.nameOrganize %></td>
+                                <td><%= item.organizer.phone %></td>
+                                <td>
+                                    <a type="submit" class="btn btn-success" onclick="openWindow()">Ver</a>
+                                </td>
+                            </tr>
+                        <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        <% } else { %>
+            <h4> No hay datos </h4>
+        <% } %>
+    </div>
+</body>
+<script>
+function openWindow() {
+    window.open('/map', 'vista mapa', 'width= 420, height=420')
+}
+</script>
+<%- include('./templates/footer.ejs')%>
+</html>
