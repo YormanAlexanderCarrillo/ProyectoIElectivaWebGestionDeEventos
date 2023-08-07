@@ -15,7 +15,7 @@ routes.get('/', (req, res)=>{
 
 routes.get('/viewEvents', async(req, res)=>{
     const dataEvents = await getEvents()
-    console.log(dataEvents.data)
+    //console.log(dataEvents.data)
     return res.render('events.ejs',{
         title: 'Vista Eventos',
         data: dataEvents.data
@@ -141,7 +141,7 @@ routes.get('/registerEvent', async (req, res)=>{
   if (req.session.loggedIn){
     const dataGuest = await getGuest()
     const dataorganizer = await getOrganizer()
-    console.log(dataGuest)
+   // console.log(dataGuest)
     return res.render('registerevent.ejs', {
       title: "Registro Evento",
       dataGuest: dataGuest.data,
@@ -154,7 +154,7 @@ routes.get('/registerEvent', async (req, res)=>{
 
 routes.post('/registerEvent',async (req, res)=>{
   const { inputIdEvent, inputTitleEvent,inputDescriptionEvent, inputDateInitial, inputDateFinish,inputValueEvent, guestSelector,selectOrganizer } = req.body;
-  console.log(inputIdEvent, "-", inputTitleEvent, "-" ,inputDescriptionEvent, "-", inputDateInitial, "-",inputDateFinish ,"-",inputValueEvent,"-", guestSelector, "-", selectOrganizer)
+  //console.log(inputIdEvent, "-", inputTitleEvent, "-" ,inputDescriptionEvent, "-", inputDateInitial, "-",inputDateFinish ,"-",inputValueEvent,"-", guestSelector, "-", selectOrganizer)
   try {
     const eventData = {
       "id": Number(inputIdEvent),
