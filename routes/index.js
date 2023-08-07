@@ -70,8 +70,13 @@ routes.post('/dashboard', async (req, res) => {
 
 routes.get('/registerGuest', (req, res)=>{
   if (req.session.loggedIn){
+    const showAlert = req.session.showAlert || false;
+    req.session.showAlert = false
+    const alertType = req.query.alertType || 'success';
     return res.render('registerguest.ejs', {
-      title: "Registro invitado"
+      title: "Registro invitado",
+      showAlert: showAlert,
+      alertType: alertType
     })
   }else{
     res.redirect('/login')
@@ -88,8 +93,11 @@ routes.post('/registerGuest', async (req, res) => {
       "nameGuest": inputNameGuest
     };
     const responseFromAPI = await addGuest(guestData);
-    //console.log(responseFromAPI)
     if (req.session.loggedIn) {
+     // console.log(responseFromAPI.status)
+      if(responseFromAPI.status == true){
+        req.session.showAlert = true;
+      }
       return res.redirect('/registerGuest');
     } else {
       return res.redirect('/login');
@@ -104,8 +112,13 @@ routes.post('/registerGuest', async (req, res) => {
 
 routes.get('/registerOrganizer', (req, res)=>{
   if (req.session.loggedIn){
+    const showAlert = req.session.showAlert || false;
+    req.session.showAlert = false
+    const alertType = req.query.alertType || 'success';
     return res.render('registerorganizer.ejs', {
-      title: "Registro organizador"
+      title: "Registro organizador",
+      showAlert: showAlert,
+      alertType: alertType
     })
   }else{
     res.redirect('/login')
@@ -124,6 +137,9 @@ routes.post('/registerOrganizer', async (req, res) => {
     const responseFromAPI = await addOrganizer(organizerData);
     //console.log(responseFromAPI)
     if (req.session.loggedIn) {
+      if(responseFromAPI.status == true){
+        req.session.showAlert = true;
+      }
       return res.redirect('/registerOrganizer');
     } else {
       return res.redirect('/login');

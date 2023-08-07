@@ -1,5 +1,4 @@
 
-
 async function loadGoogleMapsAPI() {
     const apiKey = "AIzaSyATOXIQjgyLmtPh9uconUqn5GsG4xciH2c";
     try {
