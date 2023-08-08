@@ -1,6 +1,6 @@
 
 async function getDataUser() {
-    const url = 'http://localhost:3001/admin';
+    const url = 'https://api-gestion-eventos.fly.dev/admin';
     const response = await fetch(url);
     if (!response.ok) {
         throw new Error('La respuesta de la API no fue exitosa');

@@ -1,4 +1,4 @@
-const URLApi = "http://localhost:3001/guest"
+const URLApi = "https://api-gestion-eventos.fly.dev/guest"
 
 
 async function addGuest(dataGuest) {

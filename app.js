@@ -25,4 +25,3 @@ app.listen(app.get('PORT'), ()=>{
 })
 
 app.use('/', require('./routes/index'))
-app.use('/map', require('./routes/googleMap'))

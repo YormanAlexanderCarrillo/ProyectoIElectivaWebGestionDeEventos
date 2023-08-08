@@ -11,73 +11,112 @@
                         <div class="card card-registration my-4">
                             <div class="row g-0">
                                 <div class="col-xl-6 d-none d-xl-block">
-                                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
-                                        alt="Sample photo" class="img-fluid"
-                                        style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
+                                    <div id="map" style="height: 100%;"></div>
                                 </div>
 
                                 <div class="col-xl-6">
                                     <div class="card-body p-md-5 text-black ">
                                         <h3 class="mb-5 text-uppercase text-center">Registro de Eventos </h3>
-                                        <form action="/registerEvent" method="post">
+                                        <form action="/registerEvent" method="post" id="formEvent">
                                             <div class="row">
                                                 <div class="form-outline">
                                                     <label class="form-label" for="inputIdEvent">ID</label>
-                                                    <input type="number" id="inputIdEvent" name="inputIdEvent" class="form-control form-control-lg border border-black" required/>
+                                                    <input type="number" id="inputIdEvent" name="inputIdEvent"
+                                                        class="form-control form-control-lg border border-black"
+                                                        required />
 
                                                 </div>
                                                 <div class="form-outline mb-4">
                                                     <label class="form-label" for="inputTitleEvent">Titulo</label>
-                                                    <input type="text" id="inputTitleEvent" name="inputTitleEvent" class="form-control form-control-lg border border-black" required/>
+                                                    <input type="text" id="inputTitleEvent" name="inputTitleEvent"
+                                                        class="form-control form-control-lg border border-black"
+                                                        required />
                                                 </div>
 
                                                 <div class="form-outline mb-4">
-                                                    <label class="form-label" for="inputDescriptionEvent">Descripción </label>
-                                                    <input type="text" id="inputDescriptionEvent" name="inputDescriptionEvent" class="form-control form-control-lg border border-black"  required/>
+                                                    <label class="form-label" for="inputDescriptionEvent">Descripción
+                                                    </label>
+                                                    <input type="text" id="inputDescriptionEvent"
+                                                        name="inputDescriptionEvent"
+                                                        class="form-control form-control-lg border border-black"
+                                                        required />
                                                 </div>
 
                                                 <div class="row">
                                                     <div class="col-md-6 mb-4">
-                                                        <label for="inputDateInitial" class="form-label">Fecha Inicio:</label>
+                                                        <label for="inputDateInitial" class="form-label">Fecha
+                                                            Inicio:</label>
                                                         <div class="col-sm-5">
-                                                            <input type="date" class=" form-control-sm border border-black" id="inputDateInitial" name="inputDateInitial" pattern="\d{4}-\d{2}-\d{2}" required>
+                                                            <input type="date"
+                                                                class=" form-control-sm border border-black"
+                                                                id="inputDateInitial" name="inputDateInitial"
+                                                                pattern="\d{4}-\d{2}-\d{2}" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6 mb-4">
-                                                        <label for="inputDateFinish" class="form-label ">Fecha Finalización:</label>
+                                                        <label for="inputDateFinish" class="form-label ">Fecha
+                                                            Finalización:</label>
                                                         <div class="col-sm-5">
-                                                            <input type="date" class="form-control-sm border border-black" id="inputDateFinish" name="inputDateFinish" pattern="\d{4}-\d{2}-\d{2}" required>
+                                                            <input type="date"
+                                                                class="form-control-sm border border-black"
+                                                                id="inputDateFinish" name="inputDateFinish"
+                                                                pattern="\d{4}-\d{2}-\d{2}" required>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="form-outline mb-4">
-                                                <label class="form-label" for="inputValueEvent">Valor</label>
-                                                <input type="number" id="inputValueEvent" name="inputValueEvent" class="form-control form-control-lg border border-black" required/>
 
-                                            </div>
-
-                                            <div class="row">
-                                                <div class="col-md-6 mb-4">
-                                                    <label class="form-label" for="selectGuest">Invitado</label>
-                                                    <select class=" select form-control border border-black" id="guestSelector" name="guestSelector" required>
-                                                        <% dataGuest.forEach((item )=>{  %>
-                                                            <option value="<%= item._id %>"><%= item.nameGuest %></option>
-                                                        <% }) %>
-                                                    </select>
-
+                                                <div class="form-outline mb-4">
+                                                    <label class="form-label" for="inputValueEvent">Valor</label>
+                                                    <input type="number" id="inputValueEvent" name="inputValueEvent"
+                                                        class="form-control form-control-lg border border-black"
+                                                        required />
                                                 </div>
-                                                <div class="col-md-6 mb-4">
-                                                    <label class="form-label" for="selectOrganizer">Organizador</label>
-                                                    <select class="select form-control border border-black" id="selectOrganizer", name="selectOrganizer" required>
-                                                        <% dataOrganizer.forEach((item)=>{ %>
-                                                            <option value="<%= item._id %>"><%= item.nameOrganize %></option>
-                                                        <%})%>
-                                                    </select>
+
+                                                <div class="row">
+                                                    <div class="col-md-6 mb-4">
+                                                        <label class="form-label" for="inputLongitud">Longitud</label>
+                                                        <input type="text" id="inputLongitud" name="inputLongitud"
+                                                            class="form-control form-control-lg border border-black"
+                                                            required disabled />
+                                                    </div>
+                                                    <div class="col-md-6 mb-4">
+                                                        <label class="form-label" for="inputLatitude">Latitud</label>
+                                                        <input type="text" id="inputLatitude" name="inputLatitude"
+                                                            class="form-control form-control-lg border border-black"
+                                                            required disabled />
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="d-flex justify-content-end pt-3">
-                                                <button type="submit" class="btn btn-success btn-lg border border-black ">Registrar Evento</button>
+
+                                                <div class="row">
+                                                    <div class="col-md-6 mb-4">
+                                                        <label class="form-label" for="selectGuest">Invitado</label>
+                                                        <select class=" select form-control border border-black"
+                                                            id="guestSelector" name="guestSelector" required>
+                                                            <% dataGuest.forEach((item )=>{ %>
+                                                                <option value="<%= item._id %>">
+                                                                    <%= item.nameGuest %>
+                                                                </option>
+                                                                <% }) %>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-6 mb-4">
+                                                        <label class="form-label"
+                                                            for="selectOrganizer">Organizador</label>
+                                                        <select class="select form-control border border-black"
+                                                            id="selectOrganizer" , name="selectOrganizer" required>
+                                                            <% dataOrganizer.forEach((item)=>{ %>
+                                                                <option value="<%= item._id %>">
+                                                                    <%= item.nameOrganize %>
+                                                                </option>
+                                                                <%})%>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex justify-content-end pt-3">
+                                                    <button type="submit"
+                                                        class="btn btn-success btn-lg border border-black ">Registrar
+                                                        Evento</button>
+                                                </div>
                                             </div>
                                         </form>
                                     </div>
@@ -90,4 +129,52 @@
         </section>
     </body>
     <%- include('./templates/footer.ejs')%>
+        <script>
+
+            let map;
+            let marker;
+
+            function initMap() {
+                const latitudEvento = 5.6;
+                const longitudEvento = -72.983;
+
+                divMap = document.getElementById("map");
+                map = new google.maps.Map(divMap, {
+                    center: { lat: latitudEvento, lng: longitudEvento },
+                    zoom: 12,
+                });
+
+                map.addListener("click", (event) => {
+                    const clickedLat = event.latLng.lat();
+                    const clickedLng = event.latLng.lng();
+
+                    if (marker) {
+                        marker.setMap(null);
+                    }
+
+                    // Mostrar ventana de confirmación antes de establecer el marcador
+                    const confirmacion = window.confirm(
+                        `¿Deseas colocar el marcador en la siguiente ubicación?\nLatitud: ${clickedLat}\nLongitud: ${clickedLng}`
+                    );
+
+                    if (confirmacion) {
+                        marker = new google.maps.Marker({
+                            position: { lat: clickedLat, lng: clickedLng },
+                            map: map,
+                            title: "Nuevo marcador",
+                        });
+                        document.getElementById('inputLatitude').value = clickedLat
+                        document.getElementById('inputLongitud').value = clickedLng
+                    }
+                });
+
+                const eventoForm = document.getElementById("formEvent");
+                eventoForm.addEventListener("submit", function (event) {
+                    inputLongitud.disabled = false;
+                    inputLatitude.disabled = false;
+                });
+            }
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATOXIQjgyLmtPh9uconUqn5GsG4xciH2c&callback=initMap" async> </script>
+
         </html>

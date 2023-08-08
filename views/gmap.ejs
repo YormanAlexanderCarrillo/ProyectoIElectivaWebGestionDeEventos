@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/styles.css">
+    <title>Mapa de Evento</title>
+</head>
+
+<body class="bodyMap">
+    <div id="map" class="divMaps"></div>
+    <select  id="latitud" ></select>
+
+</body>
+
+<script>
+    let map;
+    let marker;
+
+    function initMap() {
+        const latitudEvento = 5.717  
+        const longitudEvento = -72.917
+        const divMap = document.getElementById("map")
+        map = new google.maps.Map(divMap, {
+            center: { lat: latitudEvento, lng: longitudEvento },
+            zoom: 12,
+        });
+        marker = new google.maps.Marker({
+            position: { lat: latitudEvento, lng: longitudEvento },
+            map: map,
+            title: "Evento",
+        });
+
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATOXIQjgyLmtPh9uconUqn5GsG4xciH2c&callback=initMap" async> </script>
+
+</html>

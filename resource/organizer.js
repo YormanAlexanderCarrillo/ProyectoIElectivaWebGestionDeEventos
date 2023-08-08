@@ -1,4 +1,4 @@
-const URLApi = "http://localhost:3001/organizer"
+const URLApi = "https://api-gestion-eventos.fly.dev/organizer"
 
 
 async function addOrganizer(dataOrganizer) {

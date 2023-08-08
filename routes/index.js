@@ -13,6 +13,16 @@ routes.get('/', (req, res)=>{
     })
 })
 
+routes.get('/map', async(req, res)=>{
+  const latitud = req.query.lat
+  const longitud = req.query.lng
+  res.render('gmap.ejs',{
+    latitud: latitud,
+    longitud: longitud
+  })
+})
+
+
 routes.get('/viewEvents', async(req, res)=>{
     const dataEvents = await getEvents()
     //console.log(dataEvents.data)
@@ -169,7 +179,7 @@ routes.get('/registerEvent', async (req, res)=>{
 })
 
 routes.post('/registerEvent',async (req, res)=>{
-  const { inputIdEvent, inputTitleEvent,inputDescriptionEvent, inputDateInitial, inputDateFinish,inputValueEvent, guestSelector,selectOrganizer } = req.body;
+  const { inputIdEvent, inputTitleEvent,inputDescriptionEvent, inputDateInitial, inputDateFinish,inputValueEvent, guestSelector,selectOrganizer,inputLatitude,inputLongitud } = req.body;
   //console.log(inputIdEvent, "-", inputTitleEvent, "-" ,inputDescriptionEvent, "-", inputDateInitial, "-",inputDateFinish ,"-",inputValueEvent,"-", guestSelector, "-", selectOrganizer)
   try {
     const eventData = {
@@ -179,6 +189,10 @@ routes.post('/registerEvent',async (req, res)=>{
       "dateInitial": inputDateInitial,
       "dateFinish": inputDateFinish,
       "value": inputValueEvent,
+      "location": {
+        "longitude": -73.962588,
+        "latitude": 40.758701
+      },
       "guest": guestSelector,
       "organizer": selectOrganizer
     };
